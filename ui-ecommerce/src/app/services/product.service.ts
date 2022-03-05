@@ -25,7 +25,8 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/${id}`);
+    const productUrl = `${this.baseUrl}/${id}`;
+    return this.http.get<Product>(productUrl);
   }
 
   searchProducts(keyword: string): Observable<Product[]> {
