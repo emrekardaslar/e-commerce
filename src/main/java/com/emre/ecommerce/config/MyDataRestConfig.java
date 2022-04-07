@@ -1,11 +1,8 @@
 package com.emre.ecommerce.config;
 
-import com.emre.ecommerce.entity.Country;
-import com.emre.ecommerce.entity.Product;
-import com.emre.ecommerce.entity.ProductCategory;
-import javax.persistence.metamodel.EntityType;
+import com.emre.ecommerce.entity.*;
 
-import com.emre.ecommerce.entity.State;
+import javax.persistence.metamodel.EntityType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -43,7 +40,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, unsupportedActions);
         disableHttpMethods(Country.class, config, unsupportedActions);
         disableHttpMethods(State.class, config, unsupportedActions);
-
+        disableHttpMethods(Order.class, config, unsupportedActions);
         exposeIds(config);
 
         cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);
